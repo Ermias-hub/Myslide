@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Slide</title>
+    <link rel="icon" href="img2.jpg">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        h1, h3{
+        display: none;
+    }
+    img{
+        margin: 5px 5px 5px 5px;
+        width: 1355px;
+        height: 600px;
+    }
+   
+    span:hover{
+        padding: 2px;
+      background-color: rgba(200, 200, 200, 0.5);
+      border-radius: 5px;
+    }
+    #previous
+    {
+        position: absolute;
+        top: 300px;
+        left:50px;
+        font-size: 50px;
+    }
+    #Nxt
+    {
+        position: absolute;
+        top: 300px;
+        right:50px;
+        font-size: 50px;
+    }
+    @media only screen and (max-width:1400px){
+        img{
+        margin: 5px 5px 5px 5px;
+        width: 98%;
+        height: 600px;
+        }
+    }
+    @media only screen and (max-width: 800px){
+        img{
+        margin: 5px 5px 5px 5px;
+        width: 98%;
+        height: 400px;
+    
+        }
+        #previous{
+        position: absolute;
+        top: 200px;
+        left:50px;
+        font-size: 30px;
+    }
+    #Nxt
+    {
+        position: absolute;
+        top: 200px;
+        right:50px;
+        font-size: 30px;
+    }
+    h1, h3{
+        display: block;
+    }
+    }
+  
+    </style>
+</head>
+<body>
+    <img src="img1.jpg" alt="Ermias Aron" id="image1">
+    <span  id ="previous" onclick="PreviousPic()" class="glyphicon glyphicon-chevron-left" ></span>
+    <span  id="Nxt" onclick="nextPic()" class="glyphicon glyphicon-chevron-right"></span>
+    <h1>This is my first slide</h1>
+    <h3>Advertise your stuffs on <a href="#">EruTube</a>.</h3>
+    <script>
+         var images=["img1.jpg","img2.jpg","img3.jfif"]
+ function getCurrentImageIndex()
+        {
+            var current=document.getElementById('image1').src
+            current=current.split("/")
+            current=current[current.length-1]
+            
+            for(i=0;i<images.length;i++)
+            {
+                if (current==images[i])
+                {
+                var currentIndex=i
+                return currentIndex
+                }
+            }
+
+        }
+        function nextPic()
+        {
+            var currentindex=getCurrentImageIndex()
+            if(currentindex==images.length-1)
+            {
+                document.getElementById('image1').src=images[0]
+            }
+            else{
+                document.getElementById('image1').src=images[currentindex +1]
+            }
+        }
+        function PreviousPic()
+        {
+            var currentindex=getCurrentImageIndex()
+            if(currentindex==0)
+            {
+                document.getElementById('image1').src=images[images.length-1]
+            }
+            else{
+                document.getElementById('image1').src=images[currentindex -1]
+            }
+        }
+
+    </script>
+</body>
+</html>
